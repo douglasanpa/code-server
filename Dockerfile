@@ -1,4 +1,4 @@
-FROM codercom/ls
+FROM codercom/code-server
 RUN sudo apt-get update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install php php-gd php-mbstring php-xml php-zip php-mysql nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
