@@ -10,4 +10,8 @@ RUN sudo apt-get update && \
     sudo mv composer.phar /usr/local/bin/composer && \
     sudo chmod +x /usr/local/bin/composer && \
     composer global require laravel/installer &&\
-    export PATH="$PATH:$HOME/.composer/vendor/bin"
+    export PATH="$PATH:$HOME/.composer/vendor/bin" &&\
+    sudo bash -c "grep -qxF 'sudo chown coder.coder /var/run/docker.sock' /etc/skel/.bashrc || echo 'sudo chown coder.coder /var/run/docker.sock' >> /etc/skel/.bashrc"  &&\
+    sudo bash -c "grep -qxF 'sudo chown coder.coder /var/run/docker.sock' /home/coder/.bashrc || echo 'sudo chown coder.coder /var/run/docker.sock' >> /home/coder/.bashrc" &&\
+    sudo bash -c "grep -qxF 'sudo chown coder.coder /var/run/docker.sock' /root/.bashrc || echo 'sudo chown coder.coder /var/run/docker.sock' >> /root/.bashrc" &&\
+
