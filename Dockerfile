@@ -8,4 +8,6 @@ RUN sudo apt-get update && \
     sudo apt-get -y install nodejs yarn && \
     curl -sS https://getcomposer.org/installer | php && \
     sudo mv composer.phar /usr/local/bin/composer && \
-    sudo chmod +x /usr/local/bin/composer
+    sudo chmod +x /usr/local/bin/composer && \
+    composer global require laravel/installer &&\
+    export PATH="$PATH:$HOME/.composer/vendor/bin"
