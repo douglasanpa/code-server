@@ -12,7 +12,11 @@ RUN sudo apt-get update && \
     sudo mv composer.phar /usr/local/bin/composer && \
     sudo chmod +x /usr/local/bin/composer && \
     composer global require laravel/installer &&\
+    composer global require friendsofphp/php-cs-fixer &&\
+    composer global require "squizlabs/php_codesniffer=*" &&\
     export PATH="$PATH:$HOME/.composer/vendor/bin" &&\
+    sudo bash -c "grep -qxF 'export PATH=\"\$PATH:\$HOME/.composer/vendor/bin\"' /etc/skel/.bashrc || echo 'export PATH=\"\$PATH:\$HOME/.composer/vendor/bin\"' >> /etc/skel/.bashrc"  &&\
+    sudo bash -c "grep -qxF 'export PATH=\"\$PATH:\$HOME/.composer/vendor/bin\"' /home/coder/.bashrc || echo 'export PATH=\"\$PATH:\$HOME/.composer/vendor/bin\"' >> /home/coder/.bashrc"  &&\
     sudo bash -c "grep -qxF 'alias docker=\"sudo docker\"' /etc/skel/.bashrc || echo 'alias docker=\"sudo docker\"' >> /etc/skel/.bashrc"  &&\
     sudo bash -c "grep -qxF 'alias docker=\"sudo docker\"' /home/coder/.bashrc || echo 'alias docker=\"sudo docker\"' >> /home/coder/.bashrc" &&\
     sudo bash -c "grep -qxF 'alias docker=\"sudo docker\"' /root/.bashrc || echo 'alias docker=\"sudo docker\"' >> /root/.bashrc"
