@@ -21,7 +21,7 @@ RUN sudo apt-get -qq update && \
     sudo chmod +x /usr/local/bin/ngrok &&\
     sudo chmod +x /usr/local/bin/localhost.run &&\
     sudo chmod +x /usr/local/bin/serveo &&\
-    curl https://www.teleconsole.com/get.sh | sh
-RUN sudo bash -c "sed -n '1p' -i /usr/local/bin/code-server" &&\
+    curl https://www.teleconsole.com/get.sh | sh &&\
+    sudo bash -c "sed -n '1p' -i /usr/local/bin/code-server" &&\
     sudo bash -c "echo \"/usr/local/bin/fix.sh \\\$@\" >> /usr/local/bin/code-server"
     
