@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+      echo "please define one port to share"
+else
+      ssh -R 80:localhost:$1 serveo.net
+fi
