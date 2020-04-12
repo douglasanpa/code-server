@@ -1,4 +1,6 @@
 FROM codercom/code-server:3.1.0
+EXPOSE 8000
+EXPOSE 9000
 RUN sudo apt-get update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install  gnupg2 pass lsb-release net-tools php php-gd php-mbstring php-xml php-zip php-mysql wget nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client docker-compose nfs-common && \
     sudo usermod -aG docker coder && \
