@@ -22,6 +22,7 @@ RUN sudo apt-get -qq update && \
     sudo chmod +x /usr/local/bin/localhost.run &&\
     sudo chmod +x /usr/local/bin/serveo &&\
     curl https://www.teleconsole.com/get.sh | sh &&\
+    sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/* &&\
     sudo bash -c "sed -n '1p' -i /usr/local/bin/code-server" &&\
     sudo bash -c "echo \"/usr/local/bin/fix.sh \\\$@\" >> /usr/local/bin/code-server"
     
