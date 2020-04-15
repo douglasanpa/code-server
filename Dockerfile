@@ -1,4 +1,4 @@
-FROM codercom/code-server:3.1.0
+FROM codercom/code-server:3.1.1
 COPY fix.sh ngrok localhost.run serveo /usr/local/bin/
 RUN sudo apt-get -qq update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y install  gnupg2 pass lsb-release net-tools php php-gd php-mbstring php-xml php-zip php-mysql wget nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client docker-compose nfs-common && \
