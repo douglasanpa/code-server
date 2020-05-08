@@ -16,13 +16,13 @@ RUN sudo apt-get -qq update && \
     composer global require "squizlabs/php_codesniffer=*" &&\
     export PATH="$PATH:$HOME/.composer/vendor/bin" &&\
     sudo npm install -g localtunnel &&\
-    sudo chmod +x /usr/local/bin/fix.sh &&\
-    sudo chmod +x /usr/local/bin/ngrok &&\
-    sudo chmod +x /usr/local/bin/localhost.run &&\
-    sudo chmod +x /usr/local/bin/serveo &&\
     curl https://www.teleconsole.com/get.sh | sh &&\
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 COPY fix.sh ngrok localhost.run serveo /usr/local/bin/
-RUN sudo bash -c "sed -n '1p' -i /usr/bin/code-server" &&\
+RUN sudo chmod +x /usr/local/bin/fix.sh &&\
+    sudo chmod +x /usr/local/bin/ngrok &&\
+    sudo chmod +x /usr/local/bin/localhost.run &&\
+    sudo chmod +x /usr/local/bin/serveo &&\
+    sudo bash -c "sed -n '1p' -i /usr/bin/code-server" &&\
     sudo bash -c "echo \"/usr/local/bin/fix.sh \\\$@\" >> /usr/bin/code-server"
     
