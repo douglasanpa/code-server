@@ -1,5 +1,4 @@
 FROM codercom/code-server:3.2.0
-COPY fix.sh ngrok localhost.run serveo /usr/local/bin/
 RUN sudo apt-get -qq update && \
     sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y install  gnupg2 pass lsb-release net-tools php php-gd php-mbstring php-xml php-zip php-mysql wget nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client docker-compose nfs-common && \
     sudo usermod -aG docker coder && \
@@ -23,6 +22,7 @@ RUN sudo apt-get -qq update && \
     sudo chmod +x /usr/local/bin/serveo &&\
     curl https://www.teleconsole.com/get.sh | sh &&\
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
+COPY fix.sh ngrok localhost.run serveo /usr/local/bin/
 RUN sudo bash -c "sed -n '1p' -i /usr/bin/code-server" &&\
     sudo bash -c "echo \"/usr/local/bin/fix.sh \\\$@\" >> /usr/bin/code-server"
     
