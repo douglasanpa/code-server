@@ -1,6 +1,6 @@
 FROM codercom/code-server:latest
 RUN sudo apt-get -qq update && \
-    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y install  gnupg2 pass lsb-release net-tools php php-gd php-mbstring php-xml php-snmp php-intl php-zip php-mysql wget nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client docker-compose nfs-common && \
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -qq -y install  gnupg2 pass lsb-release net-tools php php-gd php-mbstring php-xml php-snmp php-intl php-bcmath php-zip php-mysql wget nano gcc g++ make libpng-dev dh-autoreconf libpng++-dev pkg-config autoconf libtool nasm unzip php-curl mariadb-client docker-compose nfs-common && \
     sudo usermod -aG docker coder && \
     curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/Release.key | sudo apt-key add - &&\
     echo 'deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/Debian_10/ /'| sudo tee /etc/apt/sources.list.d/podman.list &&\
