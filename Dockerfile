@@ -16,7 +16,6 @@ RUN sudo apt-get -qq update && \
     composer global require "squizlabs/php_codesniffer=*" &&\
     export PATH="$PATH:$HOME/.composer/vendor/bin" &&\
     sudo npm install -g localtunnel &&\
-    curl https://www.teleconsole.com/get.sh | sh &&\
     sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 COPY fix.sh ngrok localhost.run serveo /usr/local/bin/
 RUN sudo chmod +x /usr/local/bin/fix.sh &&\
